@@ -3,7 +3,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
 import os
-import shutil
+from sqlalchemy import create_engine 
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -39,17 +39,24 @@ df_normalized.to_csv('coinmarketcap_data.csv', index=False)
 #Leer el CSV
 df = pd.read_csv('coinmarketcap_data.csv')
 
-# Normalizar los datos
-df_normalized = pd.json_normalize(data['data'])
+# Columnas 
+columns_to_select = ['id', 'name', 'symbol', 'self_reported_market_cap','last_updated']
 
-# Ruta del archivo CSV (en el directorio actual)
-csv_file_path = 'coinmarketcap_data.csv'
+df_filtered = df[columns_to_select]
 
-# Guardar el DataFrame en un archivo CSV
-df_normalized.to_csv(csv_file_path, index=False)
+# Truncar las columnas a un tamaño máximo
+max_length = 256  # Ajusta según el tamaño de columna en Redshift
+for col in df.select_dtypes(include=['object']).columns:
+    df[col] = df[col].astype(str).str.slice(0, max_length)
 
-# Verificar si el archivo se ha guardado correctamente
-if os.path.exists(csv_file_path):
-    print(f"Archivo CSV guardado exitosamente en {csv_file_path}.")
-else:
-    print("El archivo no se ha guardado correctamente.")
+
+# crear base de datos sql
+conn_string = 'postgresql://gianni_ev93_coderhouse:r9NYpl19Zl@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database'
+engine = create_engine(conn_string)
+
+# Usar la conexión del motor para guardar el Dataframe en una base de datos
+with engine.connect() as conn:
+  df.to_sql('cryptocurrencies.gianni_ev93_coderhouse', conn, schema='gianni_ev93_coderhouse', if_exists='replace', index=False)
+
+print("Datos guardados exitosamente en la base de datos.")
+
