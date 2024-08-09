@@ -3,15 +3,12 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
 import os
-from modules import DataConn
+#from modules import DataConn
 from sqlalchemy import create_engine 
 import requests
-from io import StringIO
-import pandas as pd
 import logging
 from dotenv import load_dotenv
-#from sqlalchemy_redshift import RedshiftDialect
-from sqlalchemy import create_engine
+
 
 
 # Configurar logging
@@ -47,17 +44,16 @@ if 'data' in data:
     df = pd.json_normalize(data['data'])
 
     # Filtrar las columnas necesarias
-    columns_to_select = ['id', 'name', 'symbol', 'self_reported_market_cap', 'last_updated' 'num_market_pairs', 'date_added',
-                        'tags', 'max_supply', 'circulating_supply', 
-                        'total_supply', 'quote.USD.price', 'quote.USD.volume_24h']
+    columns_to_select = ['id', 'name', 'symbol', 'self_reported_market_cap', 'quote.USD.price', 'quote.USD.volume_24h']
+
     df_filtered = df[columns_to_select]
 
     # Renombrar columnas para mayor claridad
-    #df_filtered.columns = ['id', 'name', 'symbol', 'market_cap', 'last_updated']
-    df = df_filtered
+    df_filtered.columns = ['id', 'name', 'symbol', 'market_cap', 'price', 'volume_24']
+    df = df_filtered.head()
 
     # Mostrar el DataFrame resultante
-    print(df)
+    print(df.head())
 else:
     print("No se encontraron datos en la respuesta de la API.")
 
@@ -68,7 +64,7 @@ engine = create_engine(conn_string)
 
 # Usar la conexión del motor para guardar el Dataframe en una base de datos
 with engine.connect() as conn:
-  df_1row.to_sql('coinmarketcap', conn, schema='gianni_ev93_coderhouse', if_exists='replace', index=False)
+  df.to_sql('coinmarketcap', conn, schema='gianni_ev93_coderhouse', if_exists='replace', index=False)
 
 print("Datos guardados exitosamente en la base de datos.")
 
