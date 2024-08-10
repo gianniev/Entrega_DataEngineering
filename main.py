@@ -50,9 +50,12 @@ if 'data' in data:
 
     # Renombrar columnas para mayor claridad
     df_filtered.columns = ['id', 'name', 'symbol', 'market_cap', 'price', 'volume_24']
-    df = df_filtered.head()
+    df = df_filtered.head(2000)
 
     # Mostrar el DataFrame resultante
+    num_rows = len(df_filtered)
+    num_rows2 = len(df)
+    print(f'La Api me extrae un total de filas de:', num_rows)
     print(df.head())
 else:
     print("No se encontraron datos en la respuesta de la API.")
@@ -66,5 +69,6 @@ engine = create_engine(conn_string)
 with engine.connect() as conn:
   df.to_sql('coinmarketcap', conn, schema='gianni_ev93_coderhouse', if_exists='replace', index=False)
 
-print("Datos guardados exitosamente en la base de datos.")
+  print("Datos guardados exitosamente en la base de datos.")
+  print(f'Se han registrado en la base de datos un total de filas de:',num_rows2)
 
