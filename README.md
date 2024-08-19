@@ -7,6 +7,12 @@ Primera entrega del curso Data Engineering de Coderhouse
 - Luego se envía a la base de datos REDSHIFT con SQL Alchemy para comprobarlo a travéz del DBevaer.
 
 
+# Segunda entrega Coderhouse
+
+Ahora desde el main.py se importan los modulos getData y toDatabase.
+- getData extrae los datos de la API de coinmarketcap.
+- toDatabase los envia a la base de datos Redshift
+
 # Version de pandas
 pip install pandas==2.1.4
 
