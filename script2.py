@@ -5,6 +5,8 @@ import pandas as pd
 import os
 from sqlalchemy import create_engine 
 
+# Este scrpit extrae información de la base de datos REDSHIFT y la muestra en la terminal/visualstudio
+
 # Define la conexión a la base de datos
 conn_string = 'postgresql://gianni_ev93_coderhouse:r9NYpl19Zl@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database'
 engine = create_engine(conn_string)
