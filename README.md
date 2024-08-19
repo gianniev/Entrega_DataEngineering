@@ -1,8 +1,9 @@
-# Entrega_DataEngineering
-Primera entrega del curso Data Engineering de Coderhouse
+# Segunda entrega Coderhouse
 
-# Entrega_DataEngineering
-Primera entrega del curso Data Engineering de Coderhouse
+Ahora desde el main.py se importan los modulos getData y toDatabase.
+- getData extrae los datos de la API de coinmarketcap.
+- toDatabase los envia a la base de datos Redshift
+
 
 
 

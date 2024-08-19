@@ -1,0 +1,23 @@
+2024-08-08 17:34:28,009 ::DataConnectionModule-> root - ERROR - Not able to upload data
+'DataFrame' object has no attribute 'get_data'
+2024-08-08 17:34:28,009 ::DataConnectionModule-> root - WARNING - No active connection to close.
+2024-08-08 17:57:48,655 ::DataConnectionModule-> root - WARNING - Execute it before
+2024-08-08 17:57:48,655 ::DataConnectionModule-> root - ERROR - Not able to upload data
+name 'connection_url' is not defined
+2024-08-08 17:57:48,655 ::DataConnectionModule-> root - WARNING - No active connection to close.
+2024-08-08 18:10:51,298 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_USERNAME is not set or is None
+2024-08-08 18:10:51,298 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_PASSWORD is not set or is None
+2024-08-08 18:10:51,298 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_HOST is not set or is None
+2024-08-08 18:10:51,298 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_PORT is not set or is None
+2024-08-08 18:10:51,299 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_DBNAME is not set or is None
+2024-08-08 18:10:51,299 ::DataConnectionModule-> root - INFO - Connection string: postgresql://None:None@None:None/None
+2024-08-08 18:10:51,300 ::DataConnectionModule-> root - ERROR - Not able to upload data
+invalid literal for int() with base 10: 'None'
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_USERNAME is not set or is None
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_PASSWORD is not set or is None
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_HOST is not set or is None
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_PORT is not set or is None
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - ERROR - Environment variable REDSHIFT_DBNAME is not set or is None
+2024-08-08 18:15:17,765 ::DataConnectionModule-> root - INFO - Connection string: postgresql://None:None@None:None/None
+2024-08-08 18:15:17,766 ::DataConnectionModule-> root - ERROR - Not able to upload data
+invalid literal for int() with base 10: 'None'
