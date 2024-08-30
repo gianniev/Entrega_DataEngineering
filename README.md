@@ -21,3 +21,9 @@ pip install pandas==2.1.4
 
 # Chequear versión
 python -c "import pandas as pd; print(pd.__version__)"
+
+
+# 31 de agosto
+- Agregado docker-compose.yaml
+- Agregado dags, falta meterlo en una carpeta
+- Falta poner el main.py dentro del def main():
