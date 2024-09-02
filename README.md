@@ -23,7 +23,8 @@ pip install pandas==2.1.4
 python -c "import pandas as pd; print(pd.__version__)"
 
 
-# 31 de agosto
+# Entrega 03 de Setiembre, Pre entrega numero 3. Clase 10
 - Agregado docker-compose.yaml
 - Agregado dags, falta meterlo en una carpeta
 - Falta poner el main.py dentro del def main():
+- He logrado avanzar en ciertos aspectos pero no he podido concretar correctamente la visualización del dag en Airflow y tampoco visualizar las tablas/schemas con dbeaver. Espero tener una segunda oportunidad para completar la entrega nuevamente ya que no he podido completarla. Algo en el pipeline estoy fallando
